@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You 💕 Blooming Lily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 50%, #fd79a8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .lily-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            height: 400px;
+        }
+
+        svg {
+            max-width: 300px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        .petal {
+            transform-origin: center;
+            animation: bloomPetal 3s ease-in-out forwards;
+        }
+
+        .petal:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .petal:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .petal:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .petal:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .petal:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .petal:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes bloomPetal {
+            0% {
+                transform: scale(0.3) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .center-circle {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(255, 200, 100, 0.8));
+            }
+            50% {
+                filter: drop-shadow(0 0 15px rgba(255, 200, 100, 1));
+            }
+        }
+
+        .messages {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 1.3em;
+            color: #ff6b9d;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: slideIn 0.8s ease-out forwards;
+            opacity: 0;
+            font-weight: bold;
+        }
+
+        .message:nth-child(1) {
+            animation-delay: 2s;
+        }
+
+        .message:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+
+        .message:nth-child(3) {
+            animation-delay: 3s;
+        }
+
+        .message:nth-child(4) {
+            animation-delay: 3.5s;
+        }
+
+        .message:nth-child(5) {
+            animation-delay: 4s;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .heart {
+            display: inline-block;
+            animation: heartbeat 1.2s ease-in-out infinite;
+            margin: 0 5px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkleAnim 1.5s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(4) {
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease-in 4.5s forwards;
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5em;
+            }
+
+            .message {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+
+            .lily-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+
+    <div class="container">
+        <h1 class="title">I <span class="heart">💕</span> YOU</h1>
+
+        <div class="lily-container">
+            <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stem -->
+                <line x1="100" y1="300" x2="100" y2="150" stroke="#2d5016" stroke-width="3"/>
+                <ellipse cx="98" cy="250" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
+                <ellipse cx="102" cy="200" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
+                <ellipse cx="99" cy="180" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
+
+                <!-- Petals -->
+                <path class="petal" d="M 100 150 Q 120 80 100 50 Q 80 80 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
+                <path class="petal" d="M 100 150 Q 140 100 160 60 Q 120 110 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
+                <path class="petal" d="M 100 150 Q 150 130 170 110 Q 130 140 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
+                <path class="petal" d="M 100 150 Q 130 160 150 180 Q 115 160 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
+                <path class="petal" d="M 100 150 Q 70 160 50 180 Q 85 160 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
+                <path class="petal" d="M 100 150 Q 60 100 40 60 Q 80 110 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
+
+                <!-- Center circle with glow -->
+                <circle class="center-circle" cx="100" cy="150" r="18" fill="#ffd700" stroke="#ffed4e" stroke-width="2"/>
+                <circle cx="100" cy="150" r="12" fill="#fff44f"/>
+                <circle cx="102" cy="148" r="4" fill="#fffacd" opacity="0.8"/>
+            </svg>
+        </div>
+
+        <div class="messages">
+            <div class="message">✨ I love you ✨</div>
+            <div class="message">You make my heart bloom 🌸</div>
+            <div class="message">You're so sweet & adorable 💗</div>
+            <div class="message">Every moment with you is magical ✨</div>
+            <div class="message">Forever yours 💕</div>
+        </div>
+
+        <div class="footer">
+            Made with love and cute designs 🌷💕
+        </div>
+    </div>
+</body>
+</html>
