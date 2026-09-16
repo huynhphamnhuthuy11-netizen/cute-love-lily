@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Love You 💕 Blooming Lily</title>
+    <title>I Love You Baby Yuden 💕 Blooming Lily</title>
     <style>
         * {
             margin: 0;
@@ -18,13 +18,15 @@
             justify-content: center;
             align-items: center;
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding: 20px;
         }
 
         .container {
             text-align: center;
             position: relative;
             z-index: 1;
+            max-width: 600px;
         }
 
         .title {
@@ -50,38 +52,22 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
         }
 
+        /* Lily Petals - 6 petals */
         .petal {
-            transform-origin: center;
-            animation: bloomPetal 3s ease-in-out forwards;
+            transform-origin: 100px 150px;
+            animation: bloomPetal 4s ease-in-out forwards;
         }
 
-        .petal:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .petal:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .petal:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .petal:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-
-        .petal:nth-child(5) {
-            animation-delay: 1s;
-        }
-
-        .petal:nth-child(6) {
-            animation-delay: 1.2s;
-        }
+        .petal1 { animation-delay: 0.2s; }
+        .petal2 { animation-delay: 0.4s; }
+        .petal3 { animation-delay: 0.6s; }
+        .petal4 { animation-delay: 0.8s; }
+        .petal5 { animation-delay: 1s; }
+        .petal6 { animation-delay: 1.2s; }
 
         @keyframes bloomPetal {
             0% {
-                transform: scale(0.3) rotate(0deg);
+                transform: scale(0.1) rotate(0deg);
                 opacity: 0;
             }
             50% {
@@ -93,65 +79,51 @@
             }
         }
 
-        .center-circle {
+        .center {
             animation: glow 2s ease-in-out infinite;
         }
 
         @keyframes glow {
             0%, 100% {
-                filter: drop-shadow(0 0 5px rgba(255, 200, 100, 0.8));
+                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
             }
             50% {
-                filter: drop-shadow(0 0 15px rgba(255, 200, 100, 1));
+                filter: drop-shadow(0 0 18px rgba(255, 215, 0, 1));
             }
         }
 
-        .messages {
+        .messages-container {
             margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .message {
             background: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
-            border-radius: 30px;
-            font-size: 1.3em;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.2em;
             color: #ff6b9d;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            animation: slideIn 0.8s ease-out forwards;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 8px auto;
+            animation: slideIn 0.5s ease-out forwards;
             opacity: 0;
             font-weight: bold;
-        }
-
-        .message:nth-child(1) {
-            animation-delay: 2s;
-        }
-
-        .message:nth-child(2) {
-            animation-delay: 2.5s;
-        }
-
-        .message:nth-child(3) {
-            animation-delay: 3s;
-        }
-
-        .message:nth-child(4) {
-            animation-delay: 3.5s;
-        }
-
-        .message:nth-child(5) {
-            animation-delay: 4s;
+            max-width: 95%;
+            word-break: break-word;
         }
 
         @keyframes slideIn {
             0% {
-                transform: translateY(30px);
+                transform: translateX(-30px);
                 opacity: 0;
             }
             100% {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
         }
@@ -167,31 +139,14 @@
             }
         }
 
-        .heart {
-            display: inline-block;
-            animation: heartbeat 1.2s ease-in-out infinite;
-            margin: 0 5px;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.3);
-            }
-            50% {
-                transform: scale(1);
-            }
-        }
-
         .sparkle {
-            position: absolute;
+            position: fixed;
             width: 10px;
             height: 10px;
             background: #fff;
             border-radius: 50%;
             animation: sparkleAnim 1.5s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .sparkle:nth-child(1) {
@@ -229,13 +184,48 @@
             }
         }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.9);
+        .heart {
+            display: inline-block;
+            animation: heartbeat 1.2s ease-in-out infinite;
+            margin: 0 5px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .counter {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.95);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-            animation: fadeIn 2s ease-in 4.5s forwards;
-            opacity: 0;
+            font-weight: bold;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 107, 157, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 107, 157, 0.8);
         }
 
         @media (max-width: 768px) {
@@ -244,8 +234,8 @@
             }
 
             .message {
-                font-size: 1.1em;
-                padding: 15px 30px;
+                font-size: 1em;
+                padding: 10px 20px;
             }
 
             .lily-container {
@@ -261,42 +251,93 @@
     <div class="sparkle"></div>
 
     <div class="container">
-        <h1 class="title">I <span class="heart">💕</span> YOU</h1>
+        <h1 class="title">I <span class="heart">💕</span> YOU BABY YUDEN</h1>
 
         <div class="lily-container">
             <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
                 <!-- Stem -->
-                <line x1="100" y1="300" x2="100" y2="150" stroke="#2d5016" stroke-width="3"/>
-                <ellipse cx="98" cy="250" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
-                <ellipse cx="102" cy="200" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
-                <ellipse cx="99" cy="180" rx="3" ry="8" fill="#2d5016" opacity="0.6"/>
+                <line x1="100" y1="300" x2="100" y2="140" stroke="#2d5016" stroke-width="4" stroke-linecap="round"/>
+                <!-- Stem details -->
+                <ellipse cx="97" cy="250" rx="2" ry="6" fill="#2d5016" opacity="0.7"/>
+                <ellipse cx="103" cy="200" rx="2" ry="6" fill="#2d5016" opacity="0.7"/>
+                <ellipse cx="98" cy="170" rx="2" ry="6" fill="#2d5016" opacity="0.7"/>
 
-                <!-- Petals -->
-                <path class="petal" d="M 100 150 Q 120 80 100 50 Q 80 80 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
-                <path class="petal" d="M 100 150 Q 140 100 160 60 Q 120 110 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
-                <path class="petal" d="M 100 150 Q 150 130 170 110 Q 130 140 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
-                <path class="petal" d="M 100 150 Q 130 160 150 180 Q 115 160 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
-                <path class="petal" d="M 100 150 Q 70 160 50 180 Q 85 160 100 150" fill="#ff69b4" stroke="#ff1493" stroke-width="2"/>
-                <path class="petal" d="M 100 150 Q 60 100 40 60 Q 80 110 100 150" fill="#ff85c1" stroke="#ff1493" stroke-width="2"/>
+                <!-- 6 Lily Petals - Pink/Magenta -->
+                <!-- Petal 1 (Top) -->
+                <path class="petal petal1" d="M 100 140 Q 95 90 100 50 Q 105 90 100 140" fill="#ff1493" stroke="#c71585" stroke-width="2" opacity="0.95"/>
+                
+                <!-- Petal 2 (Top Right) -->
+                <path class="petal petal2" d="M 100 140 Q 125 95 155 70 Q 120 115 100 140" fill="#ff69b4" stroke="#c71585" stroke-width="2" opacity="0.95"/>
+                
+                <!-- Petal 3 (Bottom Right) -->
+                <path class="petal petal3" d="M 100 140 Q 135 165 160 200 Q 125 170 100 140" fill="#ff1493" stroke="#c71585" stroke-width="2" opacity="0.95"/>
+                
+                <!-- Petal 4 (Bottom) -->
+                <path class="petal petal4" d="M 100 140 Q 105 190 100 230 Q 95 190 100 140" fill="#ff69b4" stroke="#c71585" stroke-width="2" opacity="0.95"/>
+                
+                <!-- Petal 5 (Bottom Left) -->
+                <path class="petal petal5" d="M 100 140 Q 65 165 40 200 Q 75 170 100 140" fill="#ff1493" stroke="#c71585" stroke-width="2" opacity="0.95"/>
+                
+                <!-- Petal 6 (Top Left) -->
+                <path class="petal petal6" d="M 100 140 Q 75 95 45 70 Q 80 115 100 140" fill="#ff69b4" stroke="#c71585" stroke-width="2" opacity="0.95"/>
 
-                <!-- Center circle with glow -->
-                <circle class="center-circle" cx="100" cy="150" r="18" fill="#ffd700" stroke="#ffed4e" stroke-width="2"/>
-                <circle cx="100" cy="150" r="12" fill="#fff44f"/>
-                <circle cx="102" cy="148" r="4" fill="#fffacd" opacity="0.8"/>
+                <!-- Lily Center - Yellow stamen -->
+                <g class="center">
+                    <circle cx="100" cy="140" r="20" fill="#ffd700" stroke="#ffed4e" stroke-width="2"/>
+                    <circle cx="100" cy="140" r="14" fill="#fff44f"/>
+                    <circle cx="100" cy="138" r="6" fill="#fffacd" opacity="0.9"/>
+                    <!-- Stamen details -->
+                    <circle cx="95" cy="142" r="3" fill="#ffb6c1" opacity="0.7"/>
+                    <circle cx="105" cy="142" r="3" fill="#ffb6c1" opacity="0.7"/>
+                    <circle cx="100" cy="148" r="3" fill="#ffb6c1" opacity="0.7"/>
+                </g>
             </svg>
         </div>
 
-        <div class="messages">
-            <div class="message">✨ I love you ✨</div>
-            <div class="message">You make my heart bloom 🌸</div>
-            <div class="message">You're so sweet & adorable 💗</div>
-            <div class="message">Every moment with you is magical ✨</div>
-            <div class="message">Forever yours 💕</div>
+        <div class="messages-container" id="messagesContainer">
+            <!-- Messages will be added here by JavaScript -->
         </div>
 
-        <div class="footer">
-            Made with love and cute designs 🌷💕
+        <div class="counter">
+            <span id="messageCount">0</span> / 10,000 💕 I love you baby Yuden!
         </div>
     </div>
+
+    <script>
+        const container = document.getElementById('messagesContainer');
+        const counter = document.getElementById('messageCount');
+        const totalMessages = 10000;
+
+        // Generate all messages at once
+        for (let i = 1; i <= totalMessages; i++) {
+            const message = document.createElement('div');
+            message.className = 'message';
+            message.textContent = `💕 I love you baby Yuden! 💕 (#${i})`;
+            
+            // Calculate animation delay - spread them out over time
+            const delay = (i - 1) * 0.05; // 50ms between each message
+            message.style.animationDelay = delay + 's';
+            
+            container.appendChild(message);
+            
+            // Update counter
+            if (i % 100 === 0) {
+                counter.textContent = i;
+            }
+        }
+        
+        // Final counter update
+        counter.textContent = totalMessages;
+
+        // Auto scroll to show new messages
+        const scrollInterval = setInterval(() => {
+            container.scrollTop = container.scrollHeight;
+        }, 100);
+
+        // Stop scrolling after all messages appear
+        setTimeout(() => {
+            clearInterval(scrollInterval);
+        }, totalMessages * 50);
+    </script>
 </body>
 </html>
